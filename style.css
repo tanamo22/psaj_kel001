@@ -1,0 +1,196 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Menghitung padding & border dalam total lebar elemen */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font dari Google Fonts */
+    line-height: 1.6;
+    color: #333; /* Warna teks gelap yang elegan */
+    background-color: #f4f7f6; /* Warna latar belakang sangat terang */
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+}
+
+/* --- Navigasi --- */
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan tipis di bawah navbar */
+    position: fixed; /* Navigasi tetap di atas saat scroll */
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    align-items: center;
+    padding: 20px 10%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0077b6; /* Warna biru laut utama */
+}
+
+.logo span {
+    color: #00b4d8; /* Warna biru muda sebagai aksen */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    transition: 0.3s; /* Efek transisi saat hover */
+}
+
+.nav-links a:hover {
+    color: #0077b6; /* Berubah biru saat disentuh mouse */
+}
+
+/* --- Hero Section --- */
+.hero-kelompok {
+    height: 100vh; /* Tinggi satu layar penuh */
+    background: url('img/hero-bg.jpg') center/cover no-repeat; /* Pastikan ada gambar di folder img */
+    background-color: #0077b6; /* Fallback jika gambar tidak muncul */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Memberikan lapisan gelap agar teks mudah dibaca */
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.hero-kelompok h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.btn-cek {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #00b4d8;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Bentuk tombol kapsul */
+    font-weight: 600;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-cek:hover {
+    background-color: #0077b6;
+    transform: translateY(-5px); /* Efek tombol melayang sedikit ke atas */
+}
+
+/* --- Pengaturan Section Umum --- */
+.section-container {
+    padding: 80px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #023e8a;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #00b4d8;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bg-light { background-color: #f0f8ff; } /* Biru sangat muda (Alice Blue) */
+.bg-white { background-color: #ffffff; }
+
+/* --- Grid Anggota Kelompok --- */
+.kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif otomatis */
+    gap: 30px; /* Jarak antar kartu */
+}
+
+.kelompok-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar tidak keluar dari border radius */
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.kelompok-card:hover {
+    transform: scale(1.05); /* Sedikit membesar saat hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Menjaga proporsi gambar dalam kotak */
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- Container PDF & Video --- */
+.content-wrapper, .video-wrapper {
+    max-width: 800px;
+    margin: 0 auto; /* Tengah secara horizontal */
+}
+
+.pdf-container, .video-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Tinggi frame laporan/video */
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.content-desc, .video-desc {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* --- Footer --- */
+footer {
+    background: #023e8a;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* --- Responsivitas Smartphone --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Menyembunyikan menu pada HP (untuk diproses lebih lanjut ke menu burger) */
+    .hero-kelompok h1 { font-size: 2.5rem; }
+    .pdf-container, .video-container { height: 300px; }
+}
